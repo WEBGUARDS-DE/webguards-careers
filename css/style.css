@@ -157,3 +157,20 @@ footer {
 #apply p {
   color: #FFFFFF;
 }
+
+.apply-button {
+  display: inline-block;
+  background: #4BA3D4;
+  color: #0B1929;
+  padding: 15px 40px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+  transition: background 0.3s;
+  margin-top: 20px;
+}
+
+.apply-button:hover {
+  background: #5AB5E8;
+}

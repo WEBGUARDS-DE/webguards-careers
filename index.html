@@ -36,53 +36,15 @@
 
   <section id="apply">
     <h2>Bewerbung</h2>
-    <div class="form-section">
-      <form id="applyForm">
-        <input type="text" name="name" placeholder="Dein Name" required>
-        <input type="email" name="email" placeholder="Deine E-Mail" required>
-        <input type="text" name="github" placeholder="GitHub-Username (optional)">
-        <textarea name="message" placeholder="Deine Nachricht / Motivation" required></textarea>
-        <button type="submit">Bewerbung senden</button>
-      </form>
-    </div>
+    <p>Interessiert? Schreib uns eine Nachricht!</p>
+    <a href="https://github.com/wbgrds/KaI/issues/new?title=%5BBEWERBUNG%5D+Dein+Name&labels=bewerbung" class="apply-button">
+      → Bewerbung einreichen
+    </a>
   </section>
 
   <footer>
     <p>&copy; 2026 WEBGUARDS-DE. All rights reserved.</p>
   </footer>
-
-  <script>
-    document.getElementById('applyForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      
-      const data = {
-        name: document.querySelector('[name="name"]').value,
-        email: document.querySelector('[name="email"]').value,
-        github: document.querySelector('[name="github"]').value,
-        message: document.querySelector('[name="message"]').value
-      };
-
-      const webhookUrl = 'https://your-n8n-webhook-url.here';
-
-      try {
-        const response = await fetch(webhookUrl, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
-        });
-
-        if (response.ok) {
-          alert('✅ Bewerbung eingegangen! Danke!');
-          document.getElementById('applyForm').reset();
-        } else {
-          alert('❌ Fehler. Bitte versuchen Sie es später.');
-        }
-      } catch (error) {
-        alert('❌ Fehler beim Senden.');
-        console.error(error);
-      }
-    });
-  </script>
 
 </body>
 </html>
