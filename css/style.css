@@ -144,3 +144,16 @@ footer {
   border-top: 1px solid #4BA3D4;
   margin-top: 60px;
 }
+
+/* Bewerbung Section */
+#apply {
+  color: #FFFFFF;
+}
+
+#apply h2 {
+  color: #4BA3D4;
+}
+
+#apply p {
+  color: #FFFFFF;
+}
