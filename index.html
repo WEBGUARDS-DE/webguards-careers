@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WEBGUARDS Careers</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  
+  <header>
+    <h1>WEBGUARDS</h1>
+    <p>Tritt unserem Team bei</p>
+  </header>
+
+  <section id="about">
+    <h2>Über WEBGUARDS</h2>
+    <p>
+      [PLACEHOLDER: 2-3 Absätze über WEBGUARDS]
+      Wir sind ein innovatives Team von Entwicklern und IT-Profis.
+      Unsere Mission ist es, automatisierte Lösungen für Unternehmen zu schaffen.
+      Wir nutzen moderne Tech-Stacks und arbeiten agil.
+    </p>
+  </section>
+
+  <section id="team">
+    <h2>Unser Team</h2>
+    <div class="team">
+      
+      <div class="team-member">
+        <img src="assets/images/hans.jpg" alt="Hans" onerror="this.src='https://via.placeholder.com/120'">
+        <h3>Hans</h3>
+        <p><strong>[Titel]</strong></p>
+        <p>[PLACEHOLDER: 1-2 Sätze über Hans]</p>
+      </div>
+
+      <div class="team-member">
+        <img src="assets/images/olaf.jpg" alt="Olaf" onerror="this.src='https://via.placeholder.com/120'">
+        <h3>Olaf</h3>
+        <p><strong>IT-Techniker & Gründer</strong></p>
+        <p>[PLACEHOLDER: 1-2 Sätze über Olaf]</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="apply">
+    <h2>Bewerbung</h2>
+    <div class="form-section">
+      <form id="applyForm">
+        <input type="text" name="name" placeholder="Dein Name" required>
+        <input type="email" name="email" placeholder="Deine E-Mail" required>
+        <input type="text" name="github" placeholder="GitHub-Username (optional)">
+        <textarea name="message" placeholder="Deine Nachricht / Motivation" required></textarea>
+        <button type="submit">Bewerbung senden</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 WEBGUARDS-DE. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('applyForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const data = {
+        name: document.querySelector('[name="name"]').value,
+        email: document.querySelector('[name="email"]').value,
+        github: document.querySelector('[name="github"]').value,
+        message: document.querySelector('[name="message"]').value
+      };
+
+      // [PLACEHOLDER: n8n Webhook URL hier eintragen]
+      const webhookUrl = 'https://your-n8n-webhook-url.here';
+
+      try {
+        const response = await fetch(webhookUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+          alert('✅ Bewerbung eingegangen! Danke!');
+          document.getElementById('applyForm').reset();
+        } else {
+          alert('❌ Fehler. Bitte versuchen Sie es später.');
+        }
+      } catch (error) {
+        alert('❌ Fehler beim Senden.');
+        console.error(error);
+      }
+    });
+  </script>
+
+</body>
+</html>
